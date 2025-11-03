@@ -1,45 +1,73 @@
 from pyscript import display, document
 
-subjects = ['Math', 'English', 'Science', 'Filipino', 'VE,' 'SS', 'ICT', 'TLE', 'PEH', 'CAT']
-units = (1, 2, 3, 4, 5)
+#main required data
 
-display(subjects[0], target='subjectA')
-display(subjects[1], target='subjectB')
-display(subjects[2], target='subjectC')
-display(subjects[3], target='subjectD')
-display(subjects[4], target='subjectE')
-display(subjects[5], target='subjectF')
-display(subjects[6], target='subjectG')
-display(subjects[7], target='subjectH')
-display(subjects[8], target='subjectI')
-display(subjects[9], target='subjectJ')
+subjects = ['Math', 'English', 'Science', 'Filipino', 'VE', 'SS', 'ICT', 'TLE', 'PEH', 'CAT']
+units = (5, 5, 4, 3, 3, 2, 2, 2, 1, 1)
 
 
 def finalizedinfo(e):
 
+    # name input, for full name info
+
     fname = document.getElementById('firstnameinput').value
     lname = document.getElementById('lastnameinput').value
 
-    gradeA = units(4) * int(document.getElementById('inputA').value)
-    gradeB = units(4) * int(document.getElementById('inputB').value)
-    gradeC = units(3) * int(document.getElementById('inputC').value)
-    gradeD = units(2) * int(document.getElementById('inputD').value)
-    gradeE = units(0) * int(document.getElementById('inputE').value)
-    gradeF = units(2) * int(document.getElementById('inputF').value)
-    gradeG = units(1) * int(document.getElementById('inputG').value)
-    gradeH = units(1) * int(document.getElementById('inputH').value)
-    gradeI = units(0) * int(document.getElementById('inputI').value)
-    gradeI = units(1) * int(document.getElementById('inputJ').value)
+    # collect data for grades
 
-    totalgrades = int['gradeA', 'gradeB', 'gradeC', 'gradeD', 'gradeE','gradeF', 'gradeG', 'gradeH', 'gradeI', 'gradeJ']
+    gradeA = int(document.getElementById('inputA').value)
+    gradeB = int(document.getElementById('inputB').value)
+    gradeC = int(document.getElementById('inputC').value)
+    gradeD = int(document.getElementById('inputD').value)
+    gradeE = int(document.getElementById('inputE').value)
+    gradeF = int(document.getElementById('inputF').value)
+    gradeG = int(document.getElementById('inputG').value)
+    gradeH = int(document.getElementById('inputH').value)
+    gradeI = int(document.getElementById('inputI').value)
+    gradeJ = int(document.getElementById('inputJ').value)
+
+    # multiply data by respective units (in the tuple)
+
+    fgradeA = units[0] * gradeA
+    fgradeB = units[1] * gradeB
+    fgradeC = units[2] * gradeC
+    fgradeD = units[3] * gradeD
+    fgradeE = units[8] * gradeE
+    fgradeF = units[4] * gradeF
+    fgradeG = units[5] * gradeG
+    fgradeH = units[6] * gradeH
+    fgradeI = units[9] * gradeI
+    fgradeJ = units[7] * gradeJ
+
+    # puts the data in a list
+
+    totalgrades = [fgradeA, fgradeB, fgradeC, fgradeD, fgradeE, fgradeF, fgradeG, fgradeH, fgradeI, fgradeJ]
+
+    # to then be added here
 
     gradesadded = sum(totalgrades)
-    unitsadded = units(4)*2 + units(3) + units(2)*2 + units(3)*1 + units(0)*2
+    unitsadded = sum(units)
+
+    # final formula, to get general average
 
     genave = gradesadded / unitsadded
 
-    display(f"Name: {fname},{lname}", target="fullname")
-    display(f"Gen Ave: {genave}", target="average")
+    # displays for all data
+
+    display(f"Name: {fname} {lname}", target="fullname")
+    display(f"{subjects[0]}: {gradeA}", target='subjectA')
+    display(f"{subjects[1]}: {gradeB}", target='subjectB')
+    display(f"{subjects[2]}: {gradeC}", target='subjectC')
+    display(f"{subjects[3]}: {gradeD}", target='subjectD')
+    display(f"{subjects[4]}: {gradeE}", target='subjectE')
+    display(f"{subjects[5]}: {gradeF}", target='subjectF')
+    display(f"{subjects[6]}: {gradeG}", target='subjectG')
+    display(f"{subjects[7]}: {gradeH}", target='subjectH')
+    display(f"{subjects[8]}: {gradeI}", target='subjectI')
+    display(f"{subjects[9]}: {gradeJ}", target='subjectJ')
+    display(f"Gen Ave: {genave}", target="output")
+
+
 
 
 
