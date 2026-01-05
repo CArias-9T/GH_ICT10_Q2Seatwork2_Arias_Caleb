@@ -67,7 +67,7 @@ def finalizedinfo(e):
     display(f"{subjects[9]}: {gradeJ}", target='subjectJ')
     display(f"Gen Ave: {genave}", target="output")
     # if else statements
-    if genave > 74: # if statement, if general average is higher that 75, you pass
+    if genave >= 75: # if statement, if general average is higher that 75, you pass
         display(f'You passed your classes!', target="passing")
     else: # else statement, otherwise, you fail
         display(f'You failed your classes.', target="passing")
